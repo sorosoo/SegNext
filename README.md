@@ -1,1 +1,5 @@
-# study
+# 使用Pytorch简单实现SegNext，学习用
+pretrained文件夹内由官方训练的tiny版本权重文件
+可以使用官方版本的tiny权重文件进行训练或者预测（其他版本未尝试）
+更改运行参数请使用config文件夹内的yaml文件配置
+训练移步train.py，预测移步predict.py, 有不会传的参数请移步main.py
