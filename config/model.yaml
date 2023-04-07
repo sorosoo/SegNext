@@ -1,0 +1,43 @@
+# 网络模型的配置文件
+
+embed_dims:
+  - 3 # 输入图像的通道
+  - 32
+  - 64
+  - 160
+  - 256
+depths:
+  - 3
+  - 3
+  - 5
+  - 2
+drop_prob_of_encoder: 0.1
+expand_rations:
+  - 8
+  - 8
+  - 4
+  - 4
+
+
+
+drop_path_prob: 0.1
+drop_prob_of_decoder: 0.1
+# hidden_channels, output_channels
+channels_of_hamburger: 256
+nmf2d_config:
+  SPATIAL: 1
+  MD_S: 1
+  MD_D: 512
+  MD_R: 16
+  TRAIN_STEPS: 6
+  EVAL_STEPS: 7
+  INV_T: 1
+  ETA: 0.9
+  RAND_INIT: true
+  return_bases: false
+  device: cuda
+
+# 类别
+classes:
+  - background # 必须要
+  - leaf

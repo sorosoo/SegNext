@@ -1,0 +1,39 @@
+device: cuda
+batch_size: 2
+image_height: 512
+image_width: 512
+workers: 0
+epochs: 10
+
+# 每一类的占比权重，如果要让每一类的占比权重相同，为1.0即可
+weight:
+  - 1.0
+
+# 数据集存放位置
+root:
+  - dataset
+train_dir_name:
+  - train
+val_dir_name:
+  - val
+images_dir_name: images
+labels_dir_name: labels
+
+# 每训练多少个epoch就进行验证
+eval_every_n_epoch: 10
+
+# 权重保存位置
+save_path:
+  - pretrained # 目录
+  - SegNeXt # 文件名
+
+# -1表示从零开始训练网络，即不加载任何权重
+# 0表示使用官方提供的权重
+# 1表示使用自己的权重
+mode: 0
+checkpoint:
+  - pretrained # 目录
+  - segnext_tiny_512x512_ade_160k.pth # 文件名
+# 利用正则表达式将官方model中的权重加载到模型, mode != 0时失效
+regex_expr:
+  - ^(?!decoder\.cls_seg.*)$ # ?!表示对()内的内容取反, 详请见于model_utils.init_model

@@ -1,0 +1,11 @@
+scheduler_type: LINEAR_WARMUP_THEN_POLY_SCHEDULER
+
+# total_iters=epochs * 训练的图像数量
+kwargs: |
+  {
+    "warmup_iters": 62, 
+    "total_iters": 620, 
+    "warmup_ratio": 0.000001, 
+    "min_lr": 0., 
+    "power": 1.
+  }

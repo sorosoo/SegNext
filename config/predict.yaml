@@ -1,0 +1,12 @@
+device: "cuda"
+
+# -1表示从不加载任何权重就进行预测
+# 0表示使用官方提供的权重进行预测
+# 1表示使用自己的权重进行预测
+mode: 0
+checkpoint:
+  - pretrained # 目录
+  - segnext_tiny_512x512_ade_160k.pth # 文件名
+# 利用正则表达式将官方model中的权重加载到模型, mode != 0时失效
+regex_expr:
+  - ^(?!decoder\.cls_seg.*)$ # ?!表示对()内的内容取反，详请见于model_utils.init_model
